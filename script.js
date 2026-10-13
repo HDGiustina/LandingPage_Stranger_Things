@@ -57,3 +57,24 @@ gsap.from("footer", {
         // markers: {startColor: "red", endColor: "white", fontSize: "18px", fontWeight: "bold", indent: 20},
     }
 })
+
+const grupoSplit = document.querySelectorAll(".textoSplit")
+
+grupoSplit.forEach((grupo) => {
+    const split = SplitText.create(grupo, {
+        type: "lines,words, chars",
+        mask: "lines",
+    })
+
+
+    gsap.from(split.chars, {
+        opacity: 0,
+        y: 30,
+        duration: .2,
+        stagger: 0.03,
+        scrollTrigger: {
+            trigger: grupo,  
+        }
+    })
+})
+
