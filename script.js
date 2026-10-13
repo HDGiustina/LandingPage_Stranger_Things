@@ -5,76 +5,100 @@ ScrollSmoother.create({
     effects: true,
 })
 
-gsap.from(".container_principal", {
-    opacity: 0,
-    duration: 1,
-})
-
-gsap.from("picture:nth-child(2)", {
-    y: 60,
-    duration: 1,
-})
-
-gsap.from("picture:nth-child(1)", {
-    y: -60,
-    duration: 1,
-})
-
-gsap.from(".card", {
-    opacity: 0,
-    y: 30,
-    filter: "blur(10px)",
-    stagger: .3,
-    scrollTrigger: {
-        trigger: ".card",
-        start: "0% 80%",
-        end: "100% 70%",
-        scrub: true,
-    }
-})
-
-gsap.from(".feedbacks_footer ul li", {
-    opacity: 0,
-    y: 40,
-    filter: "blur(10px)",
-    stagger: .1,
-    scrollTrigger: {
-        trigger: ".feedbacks_footer ul ",
-        start: "0% 80%",
-        end: "100% 50%",
-        scrub: 1,
-    }
-})
-
-gsap.from("footer", {
-    y: -300,
-    immediateRender: false,
-    scrollTrigger: {
-        trigger: "footer",
-        scrub: true,
-        invalidateOnRefresh: true,
-        end: "100% 100%",
-        // markers: {startColor: "red", endColor: "white", fontSize: "18px", fontWeight: "bold", indent: 20},
-    }
-})
-
-const grupoSplit = document.querySelectorAll(".textoSplit")
-
-grupoSplit.forEach((grupo) => {
-    const split = SplitText.create(grupo, {
-        type: "lines,words, chars",
-        mask: "lines",
+function animar() {
+    gsap.from(".container_principal", {
+        opacity: 0,
+        duration: 1,
     })
 
+    gsap.from("picture:nth-child(2)", {
+        y: 60,
+        duration: 1,
+    })
 
-    gsap.from(split.chars, {
+    gsap.from("picture:nth-child(1)", {
+        y: -60,
+        duration: 1,
+    })
+
+    gsap.from(".card", {
         opacity: 0,
         y: 30,
-        duration: .2,
-        stagger: 0.03,
+        filter: "blur(10px)",
+        stagger: .3,
         scrollTrigger: {
-            trigger: grupo,  
+            trigger: ".card",
+            start: "0% 80%",
+            end: "100% 70%",
+            scrub: true,
         }
     })
+
+    gsap.from(".feedbacks_footer ul li", {
+        opacity: 0,
+        y: 40,
+        filter: "blur(10px)",
+        stagger: .1,
+        scrollTrigger: {
+            trigger: ".feedbacks_footer ul ",
+            start: "0% 80%",
+            end: "100% 50%",
+            scrub: 1,
+        }
+    })
+
+    gsap.from("footer", {
+        y: -300,
+        immediateRender: false,
+        scrollTrigger: {
+            trigger: "footer",
+            scrub: true,
+            invalidateOnRefresh: true,
+            end: "100% 100%",
+            // markers: {startColor: "red", endColor: "white", fontSize: "18px", fontWeight: "bold", indent: 20},
+        }
+    })
+
+    const grupoSplit = document.querySelectorAll(".textoSplit")
+
+    grupoSplit.forEach((grupo) => {
+        const split = SplitText.create(grupo, {
+            type: "lines,words, chars",
+            mask: "lines",
+        })
+
+
+        gsap.from(split.chars, {
+            opacity: 0,
+            y: 30,
+            duration: .2,
+            stagger: 0.03,
+            scrollTrigger: {
+                trigger: grupo,  
+            }
+        })
+    })
+}
+
+const tl = gsap.timeline({
+
+    onComplete: () => {
+        animar()
+        gsap.to("#preloader", {
+            opacity: 0,
+            display: "none",
+        })
+    }
+});
+
+tl.to("#preloader path", {
+    duration: 1,
+    strokeDashoffset: 0,
 })
 
+
+tl.to("#preloader path", {
+    fill: "#E92A2D",
+    strokeDashoffset: 0,
+     duration: .5,
+})

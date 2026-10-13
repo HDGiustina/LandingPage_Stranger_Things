@@ -2,10 +2,6 @@
 
 Landing page temática de Stranger Things, desenvolvida com HTML, CSS e JavaScript. Projeto de estudo em andamento, focado em layouts modernos, responsividade e animações.
 
-## Status
-
-🚧 **Em desenvolvimento ativo**
-
 ## Sobre
 
 Este projeto é uma reconstrução/estudo do curso **DevArt** do **Gustavo Campelo**. O código foi desenvolvido durante as aulas ao vivo e está sendo refeito e adaptado por mim, com algumas alterações próprias para melhorar a estrutura e o resultado visual.
@@ -14,15 +10,15 @@ Este projeto é uma reconstrução/estudo do curso **DevArt** do **Gustavo Campe
 
 - **HTML5**
 - **CSS3**
-- **JavaScript** *(em implementação)*
-- **GSAP** — animações *(planejado)*
+- **JavaScript** 
+- **GSAP** — animações
 
 ## Funcionalidades
 
 - Layout temático de Stranger Things
 - Design responsivo (adaptação para mobile)
 - Ícones de redes sociais (Facebook, Instagram, Twitter)
-- Animações e micro-interações com GSAP *(em desenvolvimento)*
+- Animações e micro-interações com GSAP
 
 ## Como rodar localmente
 
